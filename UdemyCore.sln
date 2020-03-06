@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29820.132
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UdemyCore", "UdemyCore.csproj", "{EF35B426-B9C8-4820-870A-6996F0B03547}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Exemples", "Exemples", "{DE853E69-9A97-4224-AD1F-628682CFA1D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "jeuxdonleheros.Web.UI", "..\jeuxdonleheros.Web.UI\jeuxdonleheros.Web.UI.csproj", "{FCB58FC1-7E79-4AC2-8A5B-CAA8DF0064B7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EF35B426-B9C8-4820-870A-6996F0B03547}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF35B426-B9C8-4820-870A-6996F0B03547}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF35B426-B9C8-4820-870A-6996F0B03547}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF35B426-B9C8-4820-870A-6996F0B03547}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCB58FC1-7E79-4AC2-8A5B-CAA8DF0064B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCB58FC1-7E79-4AC2-8A5B-CAA8DF0064B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCB58FC1-7E79-4AC2-8A5B-CAA8DF0064B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCB58FC1-7E79-4AC2-8A5B-CAA8DF0064B7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EF35B426-B9C8-4820-870A-6996F0B03547} = {DE853E69-9A97-4224-AD1F-628682CFA1D9}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {67AEA80C-3139-40F0-8BF4-7A7177C68D94}
+	EndGlobalSection
+EndGlobal
