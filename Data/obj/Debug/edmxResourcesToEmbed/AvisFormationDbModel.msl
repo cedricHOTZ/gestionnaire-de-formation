@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="avisformationdbModelStoreContainer" CdmEntityContainer="avisEntities">
+    <EntitySetMapping Name="dbo_formation">
+      <EntityTypeMapping TypeName="avisformationdbModel.dbo_formation">
+        <MappingFragment StoreEntitySet="dbo_formation">
+          <ScalarProperty Name="NomSeo" ColumnName="NomSeo" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="IdFormation" ColumnName="IdFormation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dbo_avis">
+      <EntityTypeMapping TypeName="avisformationdbModel.dbo_avis">
+        <MappingFragment StoreEntitySet="dbo_avis">
+          <ScalarProperty Name="DateAvis" ColumnName="DateAvis" />
+          <ScalarProperty Name="idFormation" ColumnName="idFormation" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

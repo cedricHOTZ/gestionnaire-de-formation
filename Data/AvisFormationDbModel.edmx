@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="avisformationdbModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="dbo_avis">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nom" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="500" />
+          <Property Name="Note" Type="double" Nullable="false" />
+          <Property Name="idFormation" Type="int" Nullable="false" />
+          <Property Name="DateAvis" Type="datetime" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="dbo_formation">
+          <Key>
+            <PropertyRef Name="IdFormation" />
+          </Key>
+          <Property Name="IdFormation" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nom" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Url" Type="varchar" MaxLength="500" />
+          <Property Name="Description" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="NomSeo" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <Association Name="dbo_avis_ibfk_1">
+          <End Role="dbo_formation" Type="Self.dbo_formation" Multiplicity="1" />
+          <End Role="dbo_avis" Type="Self.dbo_avis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dbo_formation">
+              <PropertyRef Name="IdFormation" />
+            </Principal>
+            <Dependent Role="dbo_avis">
+              <PropertyRef Name="idFormation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="avisformationdbModelStoreContainer">
+          <EntitySet Name="dbo_avis" EntityType="Self.dbo_avis" Schema="avisformationdb" Table="dbo.avis" store:Type="Tables" />
+          <EntitySet Name="dbo_formation" EntityType="Self.dbo_formation" Schema="avisformationdb" Table="dbo.formation" store:Type="Tables" />
+          <AssociationSet Name="dbo_avis_ibfk_1" Association="Self.dbo_avis_ibfk_1">
+            <End Role="dbo_formation" EntitySet="dbo_formation" />
+            <End Role="dbo_avis" EntitySet="dbo_avis" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="avisformationdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="avisEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="dbo_formation" EntityType="avisformationdbModel.dbo_formation" />
+          <EntitySet Name="dbo_avis" EntityType="avisformationdbModel.dbo_avis" />
+          <AssociationSet Name="dbo_avis_ibfk_1" Association="avisformationdbModel.dbo_avis_ibfk_1">
+            <End Role="dbo_formation" EntitySet="dbo_formation" />
+            <End Role="dbo_avis" EntitySet="dbo_avis" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="dbo_formation">
+          <Key>
+            <PropertyRef Name="IdFormation" />
+          </Key>
+          <Property Name="IdFormation" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Url" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="NomSeo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="dbo_avis" Relationship="avisformationdbModel.dbo_avis_ibfk_1" FromRole="dbo_formation" ToRole="dbo_avis" />
+        </EntityType>
+        <EntityType Name="dbo_avis">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Note" Type="Double" Nullable="false" />
+          <Property Name="idFormation" Type="Int32" Nullable="false" />
+          <Property Name="DateAvis" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="dbo_formation" Relationship="avisformationdbModel.dbo_avis_ibfk_1" FromRole="dbo_avis" ToRole="dbo_formation" />
+        </EntityType>
+        <Association Name="dbo_avis_ibfk_1">
+          <End Type="avisformationdbModel.dbo_formation" Role="dbo_formation" Multiplicity="1" />
+          <End Type="avisformationdbModel.dbo_avis" Role="dbo_avis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dbo_formation">
+              <PropertyRef Name="IdFormation" />
+            </Principal>
+            <Dependent Role="dbo_avis">
+              <PropertyRef Name="idFormation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="avisformationdbModelStoreContainer" CdmEntityContainer="avisEntities">
+          <EntitySetMapping Name="dbo_formation">
+            <EntityTypeMapping TypeName="avisformationdbModel.dbo_formation">
+              <MappingFragment StoreEntitySet="dbo_formation">
+                <ScalarProperty Name="NomSeo" ColumnName="NomSeo" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="IdFormation" ColumnName="IdFormation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dbo_avis">
+            <EntityTypeMapping TypeName="avisformationdbModel.dbo_avis">
+              <MappingFragment StoreEntitySet="dbo_avis">
+                <ScalarProperty Name="DateAvis" ColumnName="DateAvis" />
+                <ScalarProperty Name="idFormation" ColumnName="idFormation" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

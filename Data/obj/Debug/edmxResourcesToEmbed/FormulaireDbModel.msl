@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="avisformationdbModelStoreContainer" CdmEntityContainer="formEntities">
+    <EntitySetMapping Name="formulaire">
+      <EntityTypeMapping TypeName="avisformationdbModel.formulaire">
+        <MappingFragment StoreEntitySet="formulaire">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

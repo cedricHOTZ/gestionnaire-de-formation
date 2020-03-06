@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="avisformationdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="avisEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="dbo_formation" EntityType="avisformationdbModel.dbo_formation" />
+    <EntitySet Name="dbo_avis" EntityType="avisformationdbModel.dbo_avis" />
+    <AssociationSet Name="dbo_avis_ibfk_1" Association="avisformationdbModel.dbo_avis_ibfk_1">
+      <End Role="dbo_formation" EntitySet="dbo_formation" />
+      <End Role="dbo_avis" EntitySet="dbo_avis" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="dbo_formation">
+    <Key>
+      <PropertyRef Name="IdFormation" />
+    </Key>
+    <Property Name="IdFormation" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nom" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Url" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="NomSeo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="dbo_avis" Relationship="avisformationdbModel.dbo_avis_ibfk_1" FromRole="dbo_formation" ToRole="dbo_avis" />
+  </EntityType>
+  <EntityType Name="dbo_avis">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nom" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Note" Type="Double" Nullable="false" />
+    <Property Name="idFormation" Type="Int32" Nullable="false" />
+    <Property Name="DateAvis" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="dbo_formation" Relationship="avisformationdbModel.dbo_avis_ibfk_1" FromRole="dbo_avis" ToRole="dbo_formation" />
+  </EntityType>
+  <Association Name="dbo_avis_ibfk_1">
+    <End Type="avisformationdbModel.dbo_formation" Role="dbo_formation" Multiplicity="1" />
+    <End Type="avisformationdbModel.dbo_avis" Role="dbo_avis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dbo_formation">
+        <PropertyRef Name="IdFormation" />
+      </Principal>
+      <Dependent Role="dbo_avis">
+        <PropertyRef Name="idFormation" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
