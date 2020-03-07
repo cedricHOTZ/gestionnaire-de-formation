@@ -2,20 +2,40 @@
 @{
     ViewBag.Title = Model.dbo_formationNom;
 }
-
-
-<h2>@Model.dbo_formationNom</h2>
-
-<br/>
-<p>Laissez un avis sur cette formation</p>
-<br/>
-<p>@Model.dbo_formationDescription</p>
-
-@foreach(var avis in Model.Avis)
+    <div class="container bg-white padding30">
+        <h2>@Model.dbo_formationNom</h2>
+        <br />
+        @Html.ActionLink("Laissez un avis sur cette formation", "LaisserUnAvis", "Avis", new { nomSeo=Model.dbo_formationNomSeo},new { @class = "big-link" })
+        <p class="margin20"><b>@Model.dbo_formationDescription</b></p>
+        <br/>
+@foreach (var avis in Model.Avis)
 {
-    <div>
-        <div>@avis.Nom</div>
-        <div>@avis.Description</div>
-
-    </div>
+    <article class="bg-grey avis">
+        <div>
+            <i>@avis.Nom</i>
+            <span style="margin-left:20px">
+                <span class="glyphicon glyphicon-star yellow"></span>
+                @if (avis.Note > 1)
+                {
+                    <span class="glyphicon glyphicon-star yellow"></span>
+                }
+                @if (avis.Note > 2)
+                {
+                    <span class="glyphicon glyphicon-star yellow"></span>
+                }
+                @if (avis.Note > 3)
+                {
+                    <span class="glyphicon glyphicon-star yellow"></span>
+                }
+                @if (avis.Note > 4)
+                {
+                    <span class="glyphicon glyphicon-star yellow"></span>
+                }
+            </span>
+        </div>
+        <br />
+        <div>@avis.Description</div> 
+    </article>
+    <br/>
 }
+        </div>

@@ -10,11 +10,11 @@
 <div class="container ">
     @foreach (var dto in Model.ListFormations)
     {
-    <article class="info-block  y-3 col-md-3 col-sm-6">
+    <article class="info-block col-md-3 col-sm-6">
 
 
         <h4>
-            @Html.ActionLink(dto.Formation.Nom, "DetailsFormation", "Formation", new { nomSeo=dto.Formation.Nom},new { @class = "lien-formation" })
+            @Html.ActionLink(dto.Formation.Nom, "DetailsFormation", "Formation", new { nomSeo=dto.Formation.NomSeo},new {@class="lien-formation"})
         </h4>
         <p>
             @if (dto.Note == 0)

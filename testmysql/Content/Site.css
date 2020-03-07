@@ -102,3 +102,18 @@ textarea {
 .lien-formation p {
     font-size:30px;
 }
+
+/* page détail formation */
+.bg-grey{
+    background-color:#F5F5F5;
+}
+.avis{
+    border-radius:5px;
+    padding:15px;
+}
+.margin20{
+    margin:20px;
+}
+.big-link{
+    font-size:1.5em;
+}
