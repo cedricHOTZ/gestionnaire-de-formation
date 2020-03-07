@@ -1,33 +1,41 @@
 ﻿@model testmysql.Models.LaisserUnAvis
 @{
-    ViewBag.Title = "Laissez Un Avis" + Model.FormationName;
+    ViewBag.Title = "Laissez Un Avis sur" + Model.FormationName;
 }
+    <div class="container bg-white padding30">
+        <h2>Laissez un avis sur @Model.FormationName</h2>
 
-@using (Html.BeginForm("SaveComment", "Avis", FormMethod.Post))
-{
-    <label>nom :</label>
-    <input type="text" name="nom" id="nom" />
-    <br />
-    <label>Commentaire :</label>
-    <textarea name="commentaire"  id="commentaire" rows="5"></textarea>
-    <br/>
-    <label>Choisissez une note entre 1 et 5</label>
-    <select name="note" id="note">
-        <option>1</option>
-        <option>1.5</option>
-        <option>2</option>
-        <option>2.5</option>
-        <option>3</option>
-        <option>3.5</option>
-        <option>4</option>
-        <option>4.5</option>
-        <option>5</option>
+        @using (Html.BeginForm("SaveComment", "Avis", FormMethod.Post))
+        {
+            <div class="form-group">
+                <label for="nom">nom : </label>
+                <input type="text" name="nom" id="nom" class="form-control" required />
+            </div>
 
+            <br />
 
+            <div class="form-group">
+                <label for="commentaire">Commentaire :</label>
+                <textarea name="commentaire" id="commentaire" rows="5" class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="note">Choisissez une note pour cette formation (5 est la meilleur note):</label>
+                <select name="note" id="note" class="form-control">
+                    <option>1</option>
+                    <option>1.5</option>
+                    <option>2</option>
+                    <option>2.5</option>
+                    <option>3</option>
+                    <option>3.5</option>
+                    <option>4</option>
+                    <option>4.5</option>
+                    <option>5</option>
 
-    </select>
-    <input type="submit" value="ok">
+                </select>
+            </div>
 
-    <input type="hidden" value="@Model.NomSeo" name="nomSeo" id="nomSeo"/>
-}
+            <button type="submit" class="btn-warning" value="ok">ENVOYER</button>
 
+            <input type="hidden" value="@Model.NomSeo" name="nomSeo" id="nomSeo" />
+        }
+    </div>
