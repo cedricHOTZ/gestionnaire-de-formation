@@ -1,0 +1,16 @@
+﻿@model List<Data.dbo_formation>
+@{
+    ViewBag.Title = "ToutesLesFormations";
+}
+
+<h2>ToutesLesFormations</h2>
+
+@foreach (var formation in Model)
+{
+    <div><span>Nom:</span><span>@formation.Nom</span></div>
+    <div><span>Description:</span><span>@formation.Description</span></div>
+    <div>formation.NomSeo</div>
+    <div>
+        @formation.NomSeo
+    </div>
+}

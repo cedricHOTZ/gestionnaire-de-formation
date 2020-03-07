@@ -11,3 +11,4 @@ C:\Users\Utilisateur\Documents\Asp.net\Logic\obj\Debug\Logic.csproj.CoreCompileI
 C:\Users\Utilisateur\Documents\Asp.net\Logic\obj\Debug\Logic.csproj.CopyComplete
 C:\Users\Utilisateur\Documents\Asp.net\Logic\obj\Debug\Logic.dll
 C:\Users\Utilisateur\Documents\Asp.net\Logic\obj\Debug\Logic.pdb
+C:\Users\Utilisateur\Documents\Asp.net\Logic\bin\Debug\Logic.dll.config

@@ -1,15 +1,23 @@
 ﻿body {
-   
+  
     padding-bottom: 20px;
+    background-color:#F5F5F5;
 }
-a{
-    margin-left:5px;
+/* lien nav */
+.navbar-nav > li > a {
+    font-weight: bold;
+    font-size: 13px;
+    margin-left: 8px;
+    text-decoration:none;
 }
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
-}
+    .navbar-nav > li > a:hover {
+        background-color: #EEEEEE;
+    }
+    /* Set padding to keep content from hitting the edges */
+    .body-content {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
 
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
@@ -23,4 +31,74 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+.jumbotron{
+    background-color:black;
+    color:orange;
+}
+.bg-white{
+    background-color:white;
+}
+.logo-small{
+    color:orange;
+    font-size:50px;
+}
+.padding30{
+    padding:30px;
+}
+/*section widget*/
+.widget-bottom{
+    background-color:orange;
+    color:white;
+}
+.widget {
+    background-color: white;
+    border: 1px solid orange;
+    border-radius:5px;
+   
+}
+.widget div{
+    padding:15px;
+}
+.yellow{
+    color:orange;
+}
+/* section pourcentage */
+
+.pourcentage{
+    background-color:white;
+}
+
+/* section affichage  des formations*/
+
+.info-block {
+    background-color: white;
+    padding: 15px;
+    border: 2px solid #F5F5F5;
+    max-height: 230px;
+    margin-bottom: 3%;
+    margin-top: 3%;
+}
+/* avis de la formation */
+.info-block div{
+    font-size:15px;
+}
+/* note des avis*/
+    .info-block p {
+        font-size: 15px;
+}
+/* lien de la formation */
+
+.lien-formation {
+    color: orange;
+    text-decoration: none;
+    font-size: 28px;
+}
+
+.lien-formation:hover {
+    text-decoration: none;
+}
+
+.lien-formation p {
+    font-size:30px;
 }

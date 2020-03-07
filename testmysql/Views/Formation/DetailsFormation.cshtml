@@ -1,0 +1,21 @@
+﻿@model testmysql.Models.FormationAvecAvisViewModel
+@{
+    ViewBag.Title = Model.dbo_formationNom;
+}
+
+
+<h2>@Model.dbo_formationNom</h2>
+
+<br/>
+<p>Laissez un avis sur cette formation</p>
+<br/>
+<p>@Model.dbo_formationDescription</p>
+
+@foreach(var avis in Model.Avis)
+{
+    <div>
+        <div>@avis.Nom</div>
+        <div>@avis.Description</div>
+
+    </div>
+}

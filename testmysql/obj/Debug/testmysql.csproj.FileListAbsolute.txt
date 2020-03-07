@@ -149,3 +149,5 @@ C:\Users\Utilisateur\Documents\Asp.net\testmysql\bin\Logic.dll
 C:\Users\Utilisateur\Documents\Asp.net\testmysql\bin\Data.pdb
 C:\Users\Utilisateur\Documents\Asp.net\testmysql\bin\Data.dll.config
 C:\Users\Utilisateur\Documents\Asp.net\testmysql\bin\Logic.pdb
+C:\Users\Utilisateur\Documents\Asp.net\testmysql\bin\RouteDebugger.dll
+C:\Users\Utilisateur\Documents\Asp.net\testmysql\bin\Logic.dll.config
