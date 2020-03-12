@@ -27,5 +27,6 @@ namespace Data
     
         public virtual DbSet<dbo_formation> dbo_formation { get; set; }
         public virtual DbSet<dbo_avis> dbo_avis { get; set; }
+        public virtual DbSet<personne> personne { get; set; }
     }
 }

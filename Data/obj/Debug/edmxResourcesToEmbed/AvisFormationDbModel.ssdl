@@ -21,6 +21,13 @@
     <Property Name="Description" Type="varchar" MaxLength="1000" Nullable="false" />
     <Property Name="NomSeo" Type="varchar" MaxLength="100" Nullable="false" />
   </EntityType>
+  <EntityType Name="personne">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nom" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
   <Association Name="dbo_avis_ibfk_1">
     <End Role="dbo_formation" Type="Self.dbo_formation" Multiplicity="1" />
     <End Role="dbo_avis" Type="Self.dbo_avis" Multiplicity="*" />
@@ -36,6 +43,7 @@
   <EntityContainer Name="avisformationdbModelStoreContainer">
     <EntitySet Name="dbo_avis" EntityType="Self.dbo_avis" Schema="avisformationdb" Table="dbo.avis" store:Type="Tables" />
     <EntitySet Name="dbo_formation" EntityType="Self.dbo_formation" Schema="avisformationdb" Table="dbo.formation" store:Type="Tables" />
+    <EntitySet Name="personne" EntityType="Self.personne" Schema="avisformationdb" store:Type="Tables" />
     <AssociationSet Name="dbo_avis_ibfk_1" Association="Self.dbo_avis_ibfk_1">
       <End Role="dbo_formation" EntitySet="dbo_formation" />
       <End Role="dbo_avis" EntitySet="dbo_avis" />

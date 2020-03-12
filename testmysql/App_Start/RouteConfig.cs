@@ -14,22 +14,17 @@ namespace testmysql
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-           name: "contact",
-           url: "Contact",
-           defaults: new { controller = "Contact", action = "Index" }
-       );
+                name: "detailsformation",
+                url: "formation/{nomSeo}",
+                defaults: new { controller = "Formation", action = "DetailsFormation" }
+            );
 
             routes.MapRoute(
-              name: "detailsFormation",
-              url: "formation/{nomSeo}",
-              defaults: new { controller = "Formation", action = "DetailsFormation" }
-          );
-
-            routes.MapRoute(
-               name: "ToutesLesFormations",
-               url: "Toutes-Les-Formations",
+               name: "touteslesformations",
+               url: "toutes-les-formations",
                defaults: new { controller = "Formation", action = "ToutesLesFormations" }
            );
+
 
             routes.MapRoute(
                 name: "Default",

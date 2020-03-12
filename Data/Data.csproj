@@ -132,6 +132,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FormulaireDbModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="personne.cs">
+      <DependentUpon>AvisFormationDbModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

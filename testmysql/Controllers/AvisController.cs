@@ -12,6 +12,7 @@ namespace testmysql.Controllers
     public class AvisController : Controller
     {
         // GET: Avis
+        [Authorize]
         public ActionResult LaisserUnAvis(string nomSeo)
         {
             var vm = new LaisserUnAvis();
@@ -26,6 +27,9 @@ namespace testmysql.Controllers
             }
             return View(vm);
         }
+
+        [Authorize]
+        [HttpPost]
         public ActionResult SaveComment(string commentaire,string nom, string note, string nomSeo)
         {
             Data.dbo_avis nouvelleAvis = new dbo_avis();

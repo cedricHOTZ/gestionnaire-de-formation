@@ -5,9 +5,11 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using Logic;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using Org.BouncyCastle.Crypto.Digests;
 using testmysql.Models;
 
 namespace testmysql.Controllers
@@ -156,14 +158,13 @@ namespace testmysql.Controllers
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+
                     // Pour plus d'informations sur l'activation de la confirmation de compte et de la réinitialisation de mot de passe, visitez https://go.microsoft.com/fwlink/?LinkID=320771
                     // Envoyer un message électronique avec ce lien
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirmez votre compte", "Confirmez votre compte en cliquant <a href=\"" + callbackUrl + "\">ici</a>");
-
-                    return RedirectToAction("Index", "Home");
+                                        return RedirectToAction("Index", "Home");
                 }
                 AddErrors(result);
             }
@@ -203,7 +204,7 @@ namespace testmysql.Controllers
             if (ModelState.IsValid)
             {
                 var user = await UserManager.FindByNameAsync(model.Email);
-                if (user == null || !(await UserManager.IsEmailConfirmedAsync(user.Id)))
+                if (user == null /*|| !(await UserManager.IsEmailConfirmedAsync(user.Id)*/)
                 {
                     // Ne révélez pas que l'utilisateur n'existe pas ou qu'il n'est pas confirmé
                     return View("ForgotPasswordConfirmation");
@@ -211,10 +212,13 @@ namespace testmysql.Controllers
 
                 // Pour plus d'informations sur l'activation de la confirmation de compte et de la réinitialisation de mot de passe, visitez https://go.microsoft.com/fwlink/?LinkID=320771
                 // Envoyer un message électronique avec ce lien
-                // string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
-                // var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);		
+                string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
+                 var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                 // await UserManager.SendEmailAsync(user.Id, "Réinitialiser le mot de passe", "Réinitialisez votre mot de passe en cliquant <a href=\"" + callbackUrl + "\">ici</a>");
-                // return RedirectToAction("ForgotPasswordConfirmation", "Account");
+
+                var mger = new EmailManager();
+                mger.SendEmail("Réinitialiser le mot de passe", "Réinitialisez votre mot de passe en cliquant <a href=\"" + callbackUrl + "\">ici</a>", model.Email);
+                return RedirectToAction("ForgotPasswordConfirmation", "Account");
             }
 
             // Si nous sommes arrivés là, un échec s’est produit. Réafficher le formulaire

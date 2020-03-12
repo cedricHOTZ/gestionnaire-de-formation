@@ -13,12 +13,28 @@ namespace testmysql.Controllers
         // GET: Formation
         public ActionResult ToutesLesFormations()
         {
-            List<dbo_formation> listFormations = new List<dbo_formation>();
+           
+            var vm = new AccueilViewModel();
+
             using (var context = new avisEntities())
-            { 
-                 listFormations = context.dbo_formation.ToList();
+            {
+                var listFormation = context.dbo_formation.ToList();
+                foreach (var f in listFormation)
+                {
+                    var dto = new FormationAvecAvisDto();
+                    dto.Formation = f;
+                    if (f.dbo_avis.Count == 0)
+                        dto.Note = 0;
+                    else
+                    {
+                        dto.Note = Math.Round(f.dbo_avis.Average(a => a.Note), 2);
+                        vm.ListFormations.Add(dto);
+                    }
+
+                    
+                }
             }
-            return View(listFormations);
+            return View(vm);
         }
 
         public ActionResult DetailsFormation(string nomSeo)

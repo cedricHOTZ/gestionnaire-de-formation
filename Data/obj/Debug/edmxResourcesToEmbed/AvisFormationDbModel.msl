@@ -24,5 +24,13 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="personne">
+      <EntityTypeMapping TypeName="avisformationdbModel.personne">
+        <MappingFragment StoreEntitySet="personne">
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

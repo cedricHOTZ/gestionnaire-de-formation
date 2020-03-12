@@ -7,6 +7,7 @@
       <End Role="dbo_formation" EntitySet="dbo_formation" />
       <End Role="dbo_avis" EntitySet="dbo_avis" />
     </AssociationSet>
+    <EntitySet Name="personne" EntityType="avisformationdbModel.personne" />
   </EntityContainer>
   <EntityType Name="dbo_formation">
     <Key>
@@ -43,4 +44,11 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="personne">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nom" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
 </Schema>

@@ -8,6 +8,7 @@ namespace testmysql.Models
 {
     public class AccueilViewModel
     {
+        
         public AccueilViewModel()
         {
             ListFormations = new List<FormationAvecAvisDto>();

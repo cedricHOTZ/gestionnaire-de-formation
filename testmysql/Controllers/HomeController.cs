@@ -6,18 +6,25 @@ using System.Web;
 using System.Web.Mvc;
 using testmysql.Models;
 using Microsoft.Ajax.Utilities;
+using System.Data.Entity.SqlServer;
 
 namespace testmysql.Controllers
 {
     public class HomeController : Controller
     {
+      
+
         public ActionResult Index()
         {
-            var listFormation = new List<dbo_formation>();
+              
+                var listFormation = new List<dbo_formation>();
             var vm = new AccueilViewModel();
             using(var context = new avisEntities())
             {
-               listFormation = context.dbo_formation.Take(2).ToList();
+
+
+            
+                listFormation = context.dbo_formation.Take(4).ToList();
                 foreach(var f in listFormation)
                 {
                    
