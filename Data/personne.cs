@@ -14,7 +14,8 @@ namespace Data
     
     public partial class personne
     {
-        public int UserId { get; set; }
+        public int Id { get; set; }
+        public string UserId { get; set; }
         public string Nom { get; set; }
     }
 }

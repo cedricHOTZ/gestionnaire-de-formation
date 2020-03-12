@@ -102,7 +102,7 @@ namespace testmysql.Models
         [Display(Name = "Confirmer le mot de passe")]
         [Compare("Password", ErrorMessage = "Le nouveau mot de passe et le mot de passe de confirmation ne correspondent pas.")]
         public string ConfirmPassword { get; set; }
-
+        public string Nom { get; set; }
         public string Code { get; set; }
     }
 

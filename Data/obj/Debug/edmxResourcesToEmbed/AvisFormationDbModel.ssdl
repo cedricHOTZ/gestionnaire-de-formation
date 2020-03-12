@@ -23,9 +23,10 @@
   </EntityType>
   <EntityType Name="personne">
     <Key>
-      <PropertyRef Name="UserId" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="varchar" MaxLength="128" Nullable="false" />
     <Property Name="Nom" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <Association Name="dbo_avis_ibfk_1">

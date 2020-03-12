@@ -1,4 +1,6 @@
 ﻿using Data;
+using Logic;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -35,8 +37,12 @@ namespace testmysql.Controllers
             Data.dbo_avis nouvelleAvis = new dbo_avis();
             nouvelleAvis.DateAvis = DateTime.Now;
             nouvelleAvis.Description = commentaire;
-            
-            nouvelleAvis.Nom = nom;
+
+            /* utiliser le nom de la personne lors du dépot d'un avis */
+            var userId = User.Identity.GetUserId();
+            var mger = new PersonneManager();
+           nouvelleAvis.Nom =  mger.GetNomFromUserId(userId);
+            nouvelleAvis.Description = commentaire;
 
 
             double dNote = 0;

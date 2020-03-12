@@ -164,7 +164,11 @@ namespace testmysql.Controllers
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirmez votre compte", "Confirmez votre compte en cliquant <a href=\"" + callbackUrl + "\">ici</a>");
-                                        return RedirectToAction("Index", "Home");
+                    var mger = new PersonneManager();
+                    mger.InsertNom(user.Id, model.Nom);
+                    
+                    
+                    return RedirectToAction("Index", "Home");
                 }
                 AddErrors(result);
             }
